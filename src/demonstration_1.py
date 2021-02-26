@@ -28,8 +28,29 @@ class LinkedListNode():
         self.value = value
         self.next  = None
 
+def print_list(linked_list):
+    prevNode = None
+    currNode = linked_list
+    nextNode = currNode.next
+
+    if currNode is not None:
+        print(currNode.value)
+        if nextNode is not None:
+            print_list(nextNode)
+
+    return
+
 def delete_node(delete_this_node):
-    # Your code here
+    # check that we were not given the last node
+    if (delete_this_node.next == None):
+        print("Cannot delete last node")
+        return
+
+    # Replace this node's value with the next node's value
+    delete_this_node.value = delete_this_node.next.value
+    delete_this_node.next = delete_this_node.next.next
+
+    return delete_this_node
 
 
 x = LinkedListNode('X')
@@ -39,4 +60,9 @@ z = LinkedListNode('Z')
 x.next = y
 y.next = z
 
+# print_list(x)
+
 delete_node(y)
+
+print_list(x)
+
