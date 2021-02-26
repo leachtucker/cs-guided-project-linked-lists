@@ -35,6 +35,7 @@ def print_list(linked_list):
 
     if currNode is not None:
         print(currNode.value)
+        
         if nextNode is not None:
             print_list(nextNode)
 
