@@ -18,6 +18,47 @@ class LinkedListNode():
         self.value = value
         self.next  = None
 
+def print_list(linked_list):
+    prevNode = None
+    currNode = linked_list
+    nextNode = currNode.next
+
+    if currNode is not None:
+        print(currNode.value)
+
+        if nextNode is not None:
+            print_list(nextNode)
+
+    return
+
 def reverse(head_of_list):
     # Your code here
+    prevNode = None
+    currNode = head_of_list
+    nextNode = currNode.next
 
+    while currNode is not None:
+        # Update next node
+        nextNode = currNode.next
+
+        # Swap pointers
+        currNode.next = prevNode
+
+        # Update to move on
+        prevNode =  currNode
+        currNode = nextNode
+
+# Setting up a LL
+x = LinkedListNode('1')
+y = LinkedListNode('2')
+z = LinkedListNode('3')
+a = LinkedListNode('4')
+
+
+x.next = y
+y.next = z
+z.next = a
+
+reverse(x)
+
+print_list(a)
